@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'autho','globalproject','home','ubersys','Yourorder',
+    'autho','globalproject','home','ubersys','Yourorder','shopping',
 ]
 
 MIDDLEWARE = [

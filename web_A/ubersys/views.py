@@ -1,15 +1,23 @@
 from django.shortcuts import render
 from folium import  ClickForMarker
-from ubersys.MapConfigu import Map
-from folium.plugins import Geocoder,LocateControl
-from folium.plugins import Search
 import folium
-import openrouteservice as ors
+from ubersys.MapConfigu import Map
+from folium.plugins import Geocoder,LocateControl,Search
 import asyncio
 from time import sleep
 import httpx
 from django.http import HttpResponse
+from django.middleware.csrf import get_token
 import  branca 
+from html import escape
+from jinja2 import Template
+from branca.element import Figure
+from django.template import RequestContext
+from django.views.decorators.csrf import csrf_protect
+#from folium.map import Popup
+
+
+
 
 
 async def http_call_async():
@@ -29,52 +37,61 @@ dicted = {"m":Map,'create_dot':ClickForMarker()}
 
 
 Element = branca.element.Element
-
+@csrf_protect
 def mapy(request):
-    print(branca.element.Element)
     #d=dicted["m"](location=[33.54625554856057, -0.27859149632496194],width='50%',zoom_start=14,)._repr_html_()
     d = {"zoom_start":17,'width':"50%","height":"50%",'location':[33.55129184778379, -0.27462011299984185]}
-    m = Map(**d)
-    m._id='test'
-    client = ors.Client(key='5b3ce3597851110001cf6248ba3731fdcaf24a8590b3de1441910')
-    coords = [[ -0.27704977068507586,33.55512075616771]]
-    vehicle_start = [ -0.2785127273139839,33.5534685032053]
-
-    for coord in coords:
-        folium.Marker(location=list(reversed(coord))).add_to(m)
+    #m = Map(**d)
+    fig = Figure(width=550,height=350)
     
-    folium.Marker(location=list(reversed(vehicle_start)), icon=folium.Icon(color="red")).add_to(m)  
+    #f1 = fig.script.to_dict()['children']
+    #print(f1, '- - ch')
+    ssc = request.get_signed_cookie#['CSRF_COOKIE_USED']#CSRF_COOKIE']
+    csrf = RequestContext(request)
+    print((ssc))
+    fig._template = Template(
+        "<!DOCTYPE html>\n"
+        "<html>\n"
+        "<head>\n"
+        "{% if this.title %}<title>{{this.title}}</title>{% endif %}"
+        "    {{this.header.render(**kwargs)}}\n"
+        "<script src=https://unpkg.com/htmx.org@1.9.4/dist/htmx.min.js></script>"
+        "</head>\n"
+        "<body hx-headers={\"X-CSRFToken\": \"{{ csrf_token }}\"}>\n"
 
-    vehicles = [
-        ors.optimization.Vehicle(id=0, profile='driving-car', start=vehicle_start, end=vehicle_start, capacity=[5])]
-    jobs = [ors.optimization.Job(id=index, location=coords, amount=[1]) for index, coords in enumerate(coords)]
-    optimized = client.optimization(jobs=jobs, vehicles=vehicles, geometry=True)
-    line_colors = ['green', 'orange', 'blue', 'yellow']
-    for route in optimized['routes']:
-        folium.PolyLine(locations=[list(reversed(coords)) for coords in ors.convert.decode_polyline(route['geometry'])['coordinates']],
-                         color=line_colors[route['vehicle']]).add_to(m)
-    sea  =  Geocoder().add_to(m)
-    ssea = Geocoder().add_to(m)
-    a= LocateControl()
-    a._id='loc'
-    my_jss = '''
-    var ma = document.getElementById("map_{}");
-    console.log(ma)
-    '''.format(a._id)
+        
+        '<form action="" method="post"><div  hx-post=/service/ ></form>'
+        "Get Some HTML, Including A Value in the Request</div>"
+        "    {{this.html.render(**kwargs)}}\n"
+        "</body>\n"
+        "<script>\n"
+        "    {{this.script.render(**kwargs)}}\n"
+        "</script>\n"
+        "</html>\n"
+    )
+    #"<div hx-post=/service/ hx-vals="+{'myVal': 'My Value','aa':'bbb','X-CSRFToken': '"+ssc+"'}\>"
 
-    a.get_root().script.add_child(Element(my_jss)).add_to(m)
+    m1 = folium.Map(location=[28.644800, 77.216721],zoom_start=11)
+    
+    s = '<button hx-post="/service/" hx-vals={"X-CSRFToken": "{{ csrf_token }}"}>hello</button>'
 
-    my_js = '''
-    var ma = document.getElementById("map_{}");
-    console.log(ma)
-    '''.format(m._id)
-    m.get_root().script.add_child(Element(my_js))
-    folium.Marker(location=[0,0],tooltip='click here',popup='<button type="button">hello</button>').add_to(m)
-    m= m._repr_html_()
-    #m.fit_bounds([[33.49287793763297, -0.42423398786667726], [33.635917272959915, 0.0866302181259037]])
-
+    folium.Marker([28.644800, 77.216721],popup= s).add_to(m1)
+    LocateControl(auto_start=True).add_to(m1)
+    m1.add_to(fig)
+    m1.add_to(fig)
+    m = fig._repr_html_()
     return render(request,'map.html',{"m":m})#{'m':d}) 
 
-def dot(request):
+def recvid(request):
 
     return render(request,'map.html') 
+def dot(request,id):
+    print(id)
+
+    return render(request,'map.html') 
+def service(request):
+    if request.POST:
+       print(request.POST)
+       print("وصلت الحمدلله رب العالمين")
+    print("dqsfd")
+    return render(request,'htmx.html')

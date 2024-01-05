@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('a/b/c/', include("globalproject.urls")),
     path('service/', include("ubersys.urls")),
+    path('/', include("shopping.urls")),
 ]
