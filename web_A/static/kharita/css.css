@@ -1,0 +1,9 @@
+@media (max-width: 470px) {
+    #bbmap{
+        margin: 0 auto!important;
+        width: 95%;
+    }
+    #bbmap div div{
+        height:500px!important;
+    }   
+}

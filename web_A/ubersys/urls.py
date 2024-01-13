@@ -1,6 +1,8 @@
 
 from django.urls import path
 from ubersys import views as v
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('map/m', v.mapy),
     path('map/m/dot', v.dot,name="dot"),
@@ -9,3 +11,4 @@ urlpatterns = [
     path('', v.service),
     
 ]
+#+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

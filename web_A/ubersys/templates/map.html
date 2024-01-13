@@ -1,58 +1,93 @@
 {%extends 'xyz/base.html'%}
 
 {%block content%}
+{% load static %}
 {%if request.user.is_authenticated%}
 {%include 'flot_head/header.html'%}
 
 {%endif%}
+<head>
+  <script type="text/javascript" src="{% static 'kharita/js.js' %}"></script>
+  <link rel="stylesheet" href="{% static 'kharita/css.css' %}">
+</head>
 
 
-
-<div class="px-3 py-2 bg-dark text-white" >
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
+    <div class="px-3 py-2 bg-dark text-white" >
+      <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <a href="/" class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
           <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
         </a>
 
         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
           <li>
-            <a href="#" class="nav-link text-secondary">
-              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
-              Home
-            </a>
+          <a href="#" class="nav-link text-secondary">
+          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+          Home
+          </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
-              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
-              create dot
-            </a>
+          <a href="#" class="nav-link text-white">
+          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
+          create dot
+          </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
-              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
-              Orders
-            </a>
+          <a href="#" class="nav-link text-white">
+          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
+          Orders
+          </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
-              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
-              Products
-            </a>
+          <a href="#" class="nav-link text-white">
+          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
+          Products
+          </a>
           </li>
           <li>
-            <a href="#" class="nav-link text-white">
-              <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
-              Customers
-            </a>
+          <a href="#" class="nav-link text-white">
+          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
+          Customers
+          </a>
           </li>
         </ul>
+        </div>
       </div>
     </div>
+
+
+    <div class="container">
+        <div class="row" >
+            <div id="bbmap">
+              {{m | safe}}
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <input type="text" id="lat" class="form-control" placeholder="lat هنا" style="border-radius: 10%;" aria-label="lat">
+            </div>
+            <div class="col">
+                <input type="text" id="lng" class="form-control" placeholder="lng هنا" aria-label="lng" >
+            </div>
+        </div>
+
+        <div class="row">
+            <button  class="form-control" style="background-color: chartreuse;" onclick="myFunction();">أرسل موقعك</button>
+        </div>
+    </div>
+
+      <!-- <button hx-post="/service/" hx-vals='js:{csrfmiddlewaretoken: 0}'>Click!!</button> -->
+
+
+
+    </div>
   </div>
-  <div hx-target="this"></div>
-    {{m | safe}}
-  <div hx-target="this" hx-post="/service/map/m/m" hx-vals="{'n':'v'}" hx-trigger="mouseenter">a</div>
+</div>
+
+
+
 
 {%endblock%}
 
