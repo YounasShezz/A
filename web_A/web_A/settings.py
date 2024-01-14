@@ -39,6 +39,8 @@ REST_FRAMEWORK = {
 }
 
 INSTALLED_APPS = [
+    'daphne',
+    'channels',
     'rest_framework',
     'asymmetric_jwt_auth',
     'certbot_django.server',
@@ -78,8 +80,8 @@ TEMPLATES = [
         },
     },
 ]
-
-WSGI_APPLICATION = 'web_A.wsgi.application'
+ASGI_APPLICATION = 'web_A.asgi.application'
+#WSGI_APPLICATION = 'web_A.wsgi.application'
 
 
 # Database
@@ -129,10 +131,22 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),"/var/www/static/", ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'),]#"/var/www/static/", ]
 STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
+"""
+REDIS_HOST = 'localhost'
+REDIS_PORT = 8000
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 8000)],
+        },
+    },
+}
+"""

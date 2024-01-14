@@ -12,9 +12,9 @@ from html import escape
 from branca.element import Figure,Element
 import folium
 from ubersys.MapConfigu import Map
-from ubersys import funhtml as fun
-
-
+from ubersys import funhtml as fun,send_client_data
+from django.contrib.auth import (
+    BACKEND_SESSION_KEY,)
 
 
 
@@ -35,6 +35,7 @@ async def async_view(request):
 # Create your views here.
 
 def mapy(request):
+    print(BACKEND_SESSION_KEY)
     #d = {"zoom_start":17,'location':[ -0.27462011299984185,33.55129184778379]}
     #fig = Figure(width=550,height=350)
     #fig._template = fun.HtmlH().page
@@ -47,6 +48,7 @@ def mapy(request):
     #LocateControl(strings={"popup":"<b>Lat:</b> ${lat}<br /><b>Lon:</b> ${lng}"}).add_to(m1)
     #aa['strings']={"popup":"<b>Lat:</b> ${lat}<br /><b>Lon:</b> ${lng}"}
     #m1.add_child(folium.LayerControl(position='topright',collapsed=True,))
+    aaa = Element(send_client_data.C_js_py.server_on_js);m1 = m1.get_root();m1.script.get_root().render();m1.script._children[aaa.get_name()]=aaa
     ee = Element(fun.HtmlH.add_jjs(fun.HtmlH,"jjs"));m1 = m1.get_root();m1.script.get_root().render();m1.script._children[ee.get_name()]=ee
     #folium.add_child(ClickForMarker(popup="<b>Lat:</b> ${lat}<br /><b>Lon:</b> ${lng}"))
     m = m1._repr_html_()
