@@ -10,8 +10,7 @@
   <script type="text/javascript" src="{% static 'kharita/js.js' %}"></script>
   <link rel="stylesheet" href="{% static 'kharita/css.css' %}">
 </head>
-
-
+ <div id="demo"></div>
     <div class="px-3 py-2 bg-dark text-white" >
       <div class="container">
         <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -23,32 +22,37 @@
           <li>
           <a href="#" class="nav-link text-secondary">
           <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
-          Home
+          الصفحة الرئيسية
           </a>
           </li>
           <li>
-          <a href="#" class="nav-link text-white">
+          <a href="#" id="ttabae" class="nav-link text-white">
           <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#speedometer2"></use></svg>
-          create dot
+          تتبع
           </a>
           </li>
           <li>
-          <a href="#" class="nav-link text-white">
-          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
-          Orders
-          </a>
+            <a href="#" id="hadidmawkieak" style="display: block;" class="nav-link text-white">
+            حدد موقعك الجغرافي
+            </a>
           </li>
           <li>
           <a href="#" class="nav-link text-white">
           <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
-          Products
+          
           </a>
           </li>
-          <li>
-          <a href="#" class="nav-link text-white">
-          <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
-          Customers
-          </a>
+          <li> 
+            <div class="row"></div>
+          <a href="#" class="nav-link text-white" style="background-color: rgb(88, 217, 56);border-radius: 10%;">
+            
+             <div> <svg width="25px" height="25px"  style="background-image:url('{% static 'send.svg' %}');background-repeat: no-repeat;"></svg>
+             </div>
+              <div><ion-icon name="send-outline"></ion-icon></div>            
+            
+              أرسل الأن موقعك
+            
+          </a></div>
           </li>
         </ul>
         </div>
@@ -80,7 +84,7 @@
 
       <!-- <button hx-post="/service/" hx-vals='js:{csrfmiddlewaretoken: 0}'>Click!!</button> -->
 
-
+  
 
     </div>
   </div>

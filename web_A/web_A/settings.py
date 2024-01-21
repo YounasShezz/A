@@ -39,6 +39,8 @@ REST_FRAMEWORK = {
 }
 
 INSTALLED_APPS = [
+    "sslserver",
+    'django_extensions',
     'daphne',
     'channels',
     'rest_framework',
@@ -50,7 +52,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'autho','globalproject','home','ubersys','Yourorder','shopping',
+    'autho','globalproject','home','ubersys','Yourorder','shopping','flet_django',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +84,10 @@ TEMPLATES = [
 ]
 ASGI_APPLICATION = 'web_A.asgi.application'
 #WSGI_APPLICATION = 'web_A.wsgi.application'
+
+#SESSION_COOKIE_SECURE = False
+#CSRF_COOKIE_SECURE = False
+#SECURE_SSL_REDIRECT = False
 
 
 # Database

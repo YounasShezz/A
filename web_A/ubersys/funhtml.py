@@ -26,12 +26,7 @@ class HtmlH:
     def __init__(self,page=page):
         self.page=page
     def add_jjs(self,variable):
-        jjs="""
-window.document.addEventListener('load', function(){console.log(getlocation_gps);});
-var avg = document.getElementById('_map');
-avg.addEventListener('click', function(){qqLatLng();});
-console.log(getlocation_gps);
-function qqLatLng(){if (getlocation_gps._active){console.log(getlocation_gps._event.longitude,getlocation_gps._event.latitude);}};
-"""
+        jjs = ""
+        
         if variable==str("jjs"):
             return jjs
