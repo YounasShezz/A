@@ -1,34 +1,89 @@
-
-<header class="p-3 mb-3 border-bottom">
-    <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-        </a>
-
-        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-secondary">Overview</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Inventory</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Customers</a></li>
-          <li><a href="#" class="nav-link px-2 link-dark">Products</a></li>
-        </ul>
-
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-          <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-        </form>
-
-        <div class="dropdown text-end">
-          <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+<style> 
+  .dropdown-toggle::after { 
+      content: none; 
+  } 
+</style> 
+<div class="container mb-3">
+  <div class="row">
+    <div class="p-2 border-bottom">
+      <div class="row">
+        <div class="col-9">
+          <div class="row">
+            <div class="col-3">
+              <div class="dropdown text-center p-2">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
+                  <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                  <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="24" height="24" fill="white"/>
+                  <path d="M2 8.976C2 7.72287 2.06584 6.64762 2.26552 5.74916C2.46772 4.83933 2.82021 4.05065 3.43543 3.43543C4.05065 2.82021 4.83933 2.46772 5.74915 2.26552C6.64762 2.06584 7.72287 2 8.976 2L9 2C10.1046 2 11 2.89543 11 4L11 9C11 10.1046 10.1046 11 9 11L4 11C2.89543 11 2 10.1046 2 9L2 8.976Z" fill="#202020"/>
+                  <path d="M22 15.024C22 16.2771 21.9342 17.3524 21.7345 18.2508C21.5323 19.1607 21.1798 19.9494 20.5646 20.5646C19.9494 21.1798 19.1607 21.5323 18.2508 21.7345C17.3524 21.9342 16.2771 22 15.024 22L15 22C13.8954 22 13 21.1046 13 20L13 15C13 13.8954 13.8954 13 15 13L20 13C21.1046 13 22 13.8954 22 15L22 15.024Z" fill="#202020"/>
+                  <path d="M2 15.024C2 16.2771 2.06584 17.3524 2.26552 18.2508C2.46772 19.1607 2.82021 19.9494 3.43543 20.5646C4.05065 21.1798 4.83933 21.5323 5.74915 21.7345C6.64762 21.9342 7.72287 22 8.976 22L9 22C10.1046 22 11 21.1046 11 20L11 15C11 13.8954 10.1046 13 9 13L4 13C2.89543 13 2 13.8954 2 15L2 15.024Z" fill="#202020"/>
+                  <path d="M22 8.976C22 7.72287 21.9342 6.64762 21.7345 5.74916C21.5323 4.83933 21.1798 4.05065 20.5646 3.43543C19.9494 2.82021 19.1607 2.46772 18.2508 2.26552C17.3524 2.06584 16.2771 2 15.024 2L15 2C13.8954 2 13 2.89543 13 4L13 9C13 10.1046 13.8954 11 15 11L20 11C21.1046 11 22 10.1046 22 9L22 8.976Z" fill="#202020"/>
+                  </svg>
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser2">
+                  <li><a class="dropdown-item" href="{% url 'map'%}">الخريطة</a></li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" >Sign out</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-3">
+              <a href="#" class="btn btn-link" role="button" data-bs-toggle="button"><?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg fill="#202020" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M31.772 16.043l-15.012-15.724c-0.189-0.197-0.449-0.307-0.721-0.307s-0.533 0.111-0.722 0.307l-15.089 15.724c-0.383 0.398-0.369 1.031 0.029 1.414 0.399 0.382 1.031 0.371 1.414-0.029l1.344-1.401v14.963c0 0.552 0.448 1 1 1h6.986c0.551 0 0.998-0.445 1-0.997l0.031-9.989h7.969v9.986c0 0.552 0.448 1 1 1h6.983c0.552 0 1-0.448 1-1v-14.968l1.343 1.407c0.197 0.204 0.459 0.308 0.722 0.308 0.249 0 0.499-0.092 0.692-0.279 0.398-0.382 0.411-1.015 0.029-1.413zM26.985 14.213v15.776h-4.983v-9.986c0-0.552-0.448-1-1-1h-9.965c-0.551 0-0.998 0.445-1 0.997l-0.031 9.989h-4.989v-15.777c0-0.082-0.013-0.162-0.032-0.239l11.055-11.52 10.982 11.507c-0.021 0.081-0.036 0.165-0.036 0.252z"></path>
+                </svg></a>
+            </div>
+            <div class="col-3">
+              <a href="#" class="btn btn-link" role="button" data-bs-toggle="button"><?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg fill="#202020" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13.275 21.23c7.217 0 12.809-4.122 12.723-10.238 0-5.412-5.726-9.739-12.943-9.739s-13.067 4.327-13.067 9.739c0 3.371 1.653 6.965 5.106 8.73 0 0.020-0.006 0.036-0.006 0.058 0 1.465-1.22 3.474-1.7 4.302h0.002c-0.038 0.090-0.061 0.188-0.061 0.292 0 0.41 0.33 0.739 0.74 0.739 0.061 0 0.159-0.012 0.194-0.012 0.010 0 0.014 0 0.013 0.003 2.552-0.417 6.321-3.289 6.879-3.97 0.573 0.085 0.96 0.098 1.44 0.098 0.204-0 0.421-0.003 0.679-0.003zM10.334 19.077l-1.281 1.064c-0.297 0.343-1.588 1.42-2.699 2.119 0.676-1.927 0.647-2.538 0.647-2.538l0.094-1.224-1.090-0.556c-2.771-1.417-4.016-4.367-4.016-6.95 0-4.302 4.965-7.739 11.068-7.739s10.943 3.437 10.943 7.739c-0.019 4.769-4.559 8.27-10.661 8.27 0 0-0.931 0.036-1.887-0.105zM32.010 19.069c0-2.71-1.059-4.778-3.701-6.329-0.064 0.721-0.27 1.495-0.494 2.174 1.708 1.18 2.195 2.393 2.195 4.154 0 2.157-1.005 3.722-3.341 4.917l-0.995 0.494s0.104 2.563 0.257 3.211c-1.951-1.43-2.622-2.625-2.622-2.625l-1.052 0.162c-0.416 0.061-1.541 0.061-1.541 0.061-2.717 0-4.73-0.648-6.448-1.992 0.466-0.029-2.787-0.027-2.86 0.036 1.986 2.426 5.234 3.956 9.308 3.956 0.221 0 0.409 0.002 0.585 0.002 0.415 0 0.75-0.012 1.245-0.084 0.484 0.587 3.195 3.172 5.401 3.532-0.001-0.002 0.002-0.002 0.011-0.002 0.029 0 0.115 0.011 0.167 0.011 0.355 0 0.64-0.285 0.64-0.64 0-0.090-0.020-0.175-0.053-0.252h0.002c-0.415-0.715-1.067-2.805-1.067-4.070 0-0.020-0.006-0.033-0.006-0.051 2.985-1.526 4.367-3.753 4.367-6.665z"></path>
+                </svg></a>
+            </div>
+            <div class="col-3">
+              <a href="#" class="btn btn-link" role="button" data-bs-toggle="button"><?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+                <svg fill="#202020" width="20px" height="20px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.114-0.011c-6.559 0-12.114 5.587-12.114 12.204 0 6.93 6.439 14.017 10.77 18.998 0.017 0.020 0.717 0.797 1.579 0.797h0.076c0.863 0 1.558-0.777 1.575-0.797 4.064-4.672 10-12.377 10-18.998 0-6.618-4.333-12.204-11.886-12.204zM16.515 29.849c-0.035 0.035-0.086 0.074-0.131 0.107-0.046-0.032-0.096-0.072-0.133-0.107l-0.523-0.602c-4.106-4.71-9.729-11.161-9.729-17.055 0-5.532 4.632-10.205 10.114-10.205 6.829 0 9.886 5.125 9.886 10.205 0 4.474-3.192 10.416-9.485 17.657zM16.035 6.044c-3.313 0-6 2.686-6 6s2.687 6 6 6 6-2.687 6-6-2.686-6-6-6zM16.035 16.044c-2.206 0-4.046-1.838-4.046-4.044s1.794-4 4-4c2.207 0 4 1.794 4 4 0.001 2.206-1.747 4.044-3.954 4.044z"></path>
+                </svg></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-3">
+          <a href="#" class="p-1 d-block link-dark text-decoration-none dropdown-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" >
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
           </a>
-          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
-          </ul>
         </div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="offcanvas offcanvas-end" style="width: 70%;background-color: #202020;" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+      <div class="offcanvas-header pb-0" style="color: #fff!important;">
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close">
+          <?xml version="1.0" encoding="utf-8"?><!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+          <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.00386 9.41816C7.61333 9.02763 7.61334 8.39447 8.00386 8.00395C8.39438 7.61342 9.02755 7.61342 9.41807 8.00395L12.0057 10.5916L14.5907 8.00657C14.9813 7.61605 15.6144 7.61605 16.0049 8.00657C16.3955 8.3971 16.3955 9.03026 16.0049 9.42079L13.4199 12.0058L16.0039 14.5897C16.3944 14.9803 16.3944 15.6134 16.0039 16.0039C15.6133 16.3945 14.9802 16.3945 14.5896 16.0039L12.0057 13.42L9.42097 16.0048C9.03045 16.3953 8.39728 16.3953 8.00676 16.0048C7.61624 15.6142 7.61624 14.9811 8.00676 14.5905L10.5915 12.0058L8.00386 9.41816Z" fill="#FFFFFF"/>
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12C1 5.92487 5.92487 1 12 1C18.0751 1 23 5.92487 23 12ZM3.00683 12C3.00683 16.9668 7.03321 20.9932 12 20.9932C16.9668 20.9932 20.9932 16.9668 20.9932 12C20.9932 7.03321 16.9668 3.00683 12 3.00683C7.03321 3.00683 3.00683 7.03321 3.00683 12Z" fill="#FFFFFF"/>
+          </svg>
+        </button>
+      </div>
+      <div class="offcanvas-body pt-0">
+        <ul class="nav p-0 flex-column" dir="rtl">
+          <li class="nav-item">
+            <a class="nav-link link-light active" aria-current="page" href="">الصفحة الشخصية</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link-light" href="">الإعدادات</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link link-light" href="">تسجيل خروج</a>
+          </li>
+        </ul>
       </div>
     </div>
-  </header>
+  </div>
+</div>
+
+<a href="{% url 'taxi'%}">refrech</a>
